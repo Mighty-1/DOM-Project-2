@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Changer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        #color-box {
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
+            background-color: #ccc;
+            border: 1px solid #000;
+        }
+        #change-color-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+        #change-color-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Color Changer</h1>
+        <div id="color-box"></div>
+        <button id="change-color-btn">Change Color</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const colorBox = document.getElementById('color-box');
+            const changeColorBtn = document.getElementById('change-color-btn');
+
+            function getRandomColor() {
+                const letters = '0123456789ABCDEF';
+                let color = '#';
+                for (let i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+
+            changeColorBtn.addEventListener('click', () => {
+                colorBox.style.backgroundColor = getRandomColor();
+            });
+        });
+    </script>
+</body>
+</html>
